@@ -117,8 +117,13 @@
               "devServerTarget": "stokky-angular-example:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "stokky-angular-example"
 }

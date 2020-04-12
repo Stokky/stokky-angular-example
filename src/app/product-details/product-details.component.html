@@ -1,0 +1,31 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product; else noProduct"
+  class="product-details"
+  [class.not-available]="!product.available"
+>
+  <h1>{{ product.name }}</h1>
+  <h4 class="price">
+    {{ product.available ? (product.price | currency) : 'Out of stock' }}
+  </h4>
+  <!-- TO BE UPDATED: the value of "alt" should be SANITIZED -->
+  <div class="image">
+    <img [src]="product.image" [alt]="product.name">
+  </div>
+  <p>{{ product.description }}</p>
+  <button *ngIf="product.available; else notAvailable"
+    (click)="cartService.addToCart(product)"
+  >
+    Add to Cart
+  </button>
+  <ng-template #notAvailable>
+    <button (click)="notify()">Notify Me</button>
+  </ng-template>
+</div>
+
+<ng-template #noProduct>
+  <p>Product details not available for the requested product ID</p>
+  <a routerLink="/" class="button primary-button">
+    {{ cartService.items.length ? 'Continue' : 'Start' }} Shopping
+  </a>
+</ng-template>

@@ -1,0 +1,44 @@
+<form [formGroup]="checkoutForm"
+  (ngSubmit)="onSubmit(checkoutForm.value)"
+>
+  <h2>Shipping Address</h2>
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="address">
+      Address
+    </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+
+  <h2>Shipping Options</h2>
+
+  <div class="shipping-options">
+    <label *ngFor="let shippingOption of shippingOptions | async"
+      class="shipping-option"
+      [for]="'shippingOption_' + shippingOption.type"
+    >
+      <div class="radio">
+        <input formControlName="shippingOption"
+          [id]="'shippingOption_' + shippingOption.type"
+          [value]="shippingOption.type"
+          type="radio"
+          (change)="cartService.setShippingOption(shippingOption)"
+          [(ngModel)]="shippingOptionSelected"
+        >
+      </div>
+      <div class="name">{{ shippingOption.type }}</div>
+      <div class="price">{{ shippingOption.price | currency }}</div>
+    </label>
+  </div>
+
+  <app-cart-prices></app-cart-prices>
+
+  <button class="button" type="submit">Place Order</button>
+</form>

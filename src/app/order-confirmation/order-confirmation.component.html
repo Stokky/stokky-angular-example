@@ -1,0 +1,26 @@
+<h2>Order Confirmation</h2>
+
+<div *ngIf="cartService.customerData; else noCustomerData" class="order-confirmed">
+  <p>Your order number: 123456</p>
+  <p>&nbsp;</p>
+  
+  <h4>Order Details</h4>
+  <p><b>Name:</b> {{ cartService.customerData.name }}</p>
+  <p><b>Address:</b> {{ cartService.customerData.address }}</p>
+  <p><b>Shipping Option:</b> {{ cartService.customerData.shippingOption }}</p>
+  <p><b>Items:</b></p>
+  <ul *ngIf="cartService.customerData">
+    <li *ngFor="let item of cartService.customerData.items">
+      {{ item.name }} - {{ item.price | currency }}
+    </li>
+  </ul>
+  <p>&nbsp;</p>
+  
+  <app-cart-prices></app-cart-prices>  
+</div>
+
+<ng-template #noCustomerData>
+  <div class="order-not-confirmed">
+    <p>Order NOT confirmed</p>
+  </div>
+</ng-template>

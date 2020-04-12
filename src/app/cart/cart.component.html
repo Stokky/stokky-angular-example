@@ -1,0 +1,46 @@
+<h2>Cart</h2>
+
+<div class="cart-items">
+  <div class="cart-item" *ngFor="let item of cartService.items">
+    <div class="image">
+      <img [src]="item.image">
+    </div>
+    <div class="name">
+        <!-- TO BE UPDATED: the value of "title" should be SANITIZED -->
+        <a [routerLink]="['/products', item.id]" [title]="item.name">{{ item.name }}</a>
+    </div>
+    <div class="price">{{ item.price | currency }}</div>
+  </div>
+</div>
+
+<app-cart-prices></app-cart-prices>
+
+<div class="buttons-down">
+  <div *ngIf="cartService.items.length; else noItems"
+    class="continue-shipping"
+  >
+    <a
+      routerLink="/shipping"
+      class="button primary-button continue-shipping"
+    >
+      Continue to Shipping
+    </a>
+    <button
+      class="button empty-cart"
+      (click)="cartService.clearCart()"
+    >
+      Remove All
+    </button>
+  </div>
+
+  <ng-template #noItems>
+    <div class="cart-empty">
+      <p>No items added to Cart</p>
+      <a routerLink="/"
+        class="button primary-button"
+      >
+        Start Shopping
+      </a>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,11 @@
+<a [routerLink]="['/']">
+  <h1>Le Store</h1>
+</a>
+
+<a routerLink="/cart" class="button fancy-button">
+  <i class="material-icons">shopping_cart</i>
+  Cart
+  <span *ngIf="cartService.countItems()" class="countItems">
+    ({{ cartService.countItems() }})
+  </span>
+</a>

@@ -1,0 +1,15 @@
+<div class="messages-wrapper">
+  <div *ngIf="messagesService.messages.length"
+    class="messages"
+  >
+    <div *ngFor="let message of messagesService.messages"
+      [ngClass]="[ 'message', message.msgType ]"
+      [class.inactive]="!message.msgActive"
+    >
+      <i class="material-icons">
+        {{ message.msgIconText }}
+      </i>
+      <span [innerHTML]="message.msgHtml"></span>
+    </div>
+  </div>
+</div>

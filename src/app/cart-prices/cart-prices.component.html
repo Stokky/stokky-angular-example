@@ -1,0 +1,8 @@
+<div *ngIf="cartService.items.length || (cartService.customerData && cartService.customerData.items.length)"
+class="cart-prices"
+>
+<p>Subtotal: {{ cartService.prices.subtotal | currency }}</p>
+<p>Shipping: {{ cartService.isNumber(cartService.prices.shipping) ? (cartService.prices.shipping | currency) : cartService.prices.shipping }}</p>
+<p>Tax: {{ cartService.isNumber(cartService.prices.tax) ? (cartService.prices.tax | currency) : cartService.prices.tax }}</p>
+<p><b>TOTAL: {{ cartService.prices.total | currency }}</b></p>
+</div>

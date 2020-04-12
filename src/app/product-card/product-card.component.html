@@ -1,0 +1,33 @@
+<div
+  class="product-card"
+  [class.not-available]="!product.available"
+  (click)="routeProductDetails(product.id)"
+>
+  <div class="price">
+    {{ product.available ? (product.price | currency) : 'Out of stock' }}
+    <i></i>
+  </div>
+  <div class="image">
+    <!-- TO BE UPDATED: the value of "alt" should be SANITIZED -->
+    <img [src]="product.image" [alt]="product.name">
+  </div>
+  <p>
+    <!-- TO BE UPDATED: the value of "title" should be SANITIZED -->
+    <a [routerLink]="['/products', product.id]" [title]="product.name">{{ product.name }}</a>
+  </p>
+  <div class="description">
+    {{ product.description ? product.description : product.name }}
+  </div>
+  <button *ngIf="product.available; else notAvailable"
+    (click)="buyNow(product)"
+  >
+    Buy Now
+  </button>
+  <ng-template #notAvailable>
+    <app-product-alerts
+      [product]="product"
+      (notify)="onNotify(product.name)"
+    >
+    </app-product-alerts>
+  </ng-template>
+</div>

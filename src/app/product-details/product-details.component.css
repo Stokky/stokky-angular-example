@@ -1,0 +1,26 @@
+
+.product-details {
+  background: #eee;
+  padding: 0 1em 1em 1em;
+  border-radius: 5px;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-color: deepskyblue;
+}
+
+.product-details.not-available {
+  border-color: lightseagreen;
+}
+
+.product-details .image {
+  text-align: center;
+}
+
+.product-details .image img {
+  max-width: 100%;
+  max-height: 15em;
+}
+
+.product-details.not-available button {
+  background: lightseagreen;
+}

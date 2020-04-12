@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "stokky-angular-example": {
+      "hosting": {
+        "stokky-angular-example": [
+          "stokky-angular-example"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "stokky-angular-example"
+  }
+}

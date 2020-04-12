@@ -1,0 +1,48 @@
+.shipping-option {
+  display: grid;
+  grid-template-columns: 1em 1fr 5em;
+  min-height: 5em;
+  font-size: unset;
+  font-weight: normal;
+  background: #eee;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  padding: 1em;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.shipping-option:hover {
+  background: #e6e6e6;
+}
+
+.shipping-option:first-child {
+  border-top-color: deepskyblue;
+}
+
+.shipping-option:last-child {
+  border-bottom-color: deepskyblue;
+}
+
+.shipping-option > * {
+  align-self: center;
+}
+
+.shipping-option .radio {
+  justify-self: center;
+}
+
+.shipping-option .radio input {
+  margin: 0;
+}
+
+.shipping-option .name {
+  font-weight: bold;
+  padding-left: 1em;
+}
+
+.shipping-option .price {
+  justify-self: end;
+}

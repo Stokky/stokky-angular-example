@@ -1,0 +1,122 @@
+.product-card {
+  position: relative;
+  height: 100%;
+  background: #eee;
+  cursor: pointer;
+  padding: 0.5em 0 3em 0;
+  border-radius: 5px;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-color: transparent;
+  transition: 0.2s;
+}
+
+.product-card:hover {
+  border-color: deepskyblue;
+}
+
+.product-card.not-available:hover {
+  border-color: lightseagreen;
+}
+
+.product-card .title {
+  overflow: hidden;
+  border-right: 0.5em solid transparent;
+}
+
+.product-card .title h3 {
+  margin: 0 0 0.5em 0.5em;
+  white-space: nowrap;
+}
+
+.product-card .price {
+  position: absolute;
+  top: 2em;
+  z-index: 1;
+  font-size: 0.8em;
+  font-weight: bold;
+  background: deepskyblue;
+  margin-left: -0.5em;
+  padding: 0.4em 1em;
+  border-radius: 0 10px 10px 0;
+  border-bottom: 1px solid white;
+}
+
+.product-card.not-available .price {
+  background: lightseagreen;
+  font-weight: normal;
+}
+
+.product-card .price i {
+  position: absolute;
+  z-index: -1;
+  bottom: -0.5em;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid deepskyblue;
+}
+
+.product-card.not-available .price i {
+  border-top: 0.5em solid lightseagreen;
+}
+
+.product-card .image {
+  display: flex;
+  height: 10.5em;
+}
+
+.product-card img {
+  margin: auto;
+  max-width: 90%;
+  max-height: 10em;
+  background: deepskyblue;
+}
+
+.product-card.not-available img {
+  background: lightseagreen;
+}
+
+.product-card p {
+  margin: 0.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.product-card .description {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 12.5em;
+  padding: 5em 1em;
+  font-size: 0.9em;
+  opacity: 0;
+  background: #eee;
+  transition: 0.5s;
+}
+
+.product-card:hover .description {
+  opacity: 0.8;
+}
+.product-card a {
+  display: inline-block;
+  width: 100%;
+  color: black;
+  transition: 0.2s;
+}
+
+.product-card:hover a {
+  color: deepskyblue;
+}
+
+.product-card.not-available:hover a {
+  color: lightseagreen;
+}
+
+.product-card button, .product-card app-product-alerts {
+  position: absolute;
+  bottom: 8px;
+  right: 1em;
+}

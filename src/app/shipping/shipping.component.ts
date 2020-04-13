@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+// app types
+import { ShippingOptionInterface } from '../types';
 
 // app services
 import { CartService } from '../cart.service';
 import { MessagesService } from '../messages.service';
-import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: './shipping.component.html',
@@ -15,7 +18,7 @@ export class ShippingComponent implements OnInit {
 
   checkoutForm: FormGroup;
 
-  shippingOptions: Observable<Object>;
+  shippingOptions: Observable<ShippingOptionInterface[]>;
 
   shippingOptionSelected: string;
 
@@ -24,15 +27,14 @@ export class ShippingComponent implements OnInit {
     private router: Router,
     public cartService: CartService,
     private messagesService: MessagesService
-  ) {
+  ) {};
+
+  ngOnInit(): void {
     this.checkoutForm = this.formBuilder.group({
       name: '',
       address: '',
       shippingOption: ''
     });
-  };
-
-  ngOnInit(): void {
     this.shippingOptions = this.cartService.getShippingOptions();
     this.shippingOptionSelected = this.cartService.customerData.shippingOption;
   };

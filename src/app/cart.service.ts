@@ -3,7 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // app types
-import { ProductInterface, CartPricesInterface, CustomerDataInterface, ShippingOptionInterface } from './types';
+import {
+  ProductInterface,
+  CartPricesInterface,
+  CustomerDataInterface,
+  ShippingOptionInterface
+} from './types';
 
 // app services
 import { MessagesService } from './messages.service';
@@ -104,8 +109,8 @@ export class CartService {
     }
   };
 
-  getShippingOptions(): Observable<Object> {
-    return this.httpClient.get('/assets/shipping.json');
+  getShippingOptions(): Observable<ShippingOptionInterface[]> {
+    return this.httpClient.get<ShippingOptionInterface[]>('/assets/shipping.json');
   };
 
   setShippingOption(shippingOption: ShippingOptionInterface): void {

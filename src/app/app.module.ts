@@ -14,13 +14,13 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { CartPricesComponent } from './cart-prices/cart-prices.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
-import { CartPricesComponent } from './cart-prices/cart-prices.component';
-import { ProductCardComponent } from './product-card/product-card.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -42,13 +42,13 @@ const routes: Routes = [
     TopBarComponent,
     MessagesComponent,
     ProductListComponent,
+    ProductCardComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
+    CartPricesComponent,
     ShippingComponent,
     OrderConfirmationComponent,
-    CartPricesComponent,
-    ProductCardComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [ CartService, MessagesService ]

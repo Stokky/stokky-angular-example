@@ -33,7 +33,6 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      console.log('--- paramMap.subscribe > next...');
       const productId: number = +params.get('productId');
       this.product = this.getProductById(productId);
       if (this.product === null) {

@@ -12,7 +12,7 @@ export class ProductAlertsComponent implements OnInit {
 
   @Input() product: ProductInterface;
 
-  @Output() notify = new EventEmitter();
+  @Output() notifyEvent: EventEmitter<string> = new EventEmitter();
 
   constructor() {};
 
